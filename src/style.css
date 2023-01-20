@@ -41,3 +41,14 @@ p{
 button:active{ 
     opacity: 0.3;
 }
+
+@media screen and (min-width: 601px) {
+    .main-button {
+      width: 300px; height: 70px; 
+    }      
+  }
+  @media screen and (max-width: 600px) {
+    .main-button {
+      width: 300px; height: 75px;  
+    }
+  }
