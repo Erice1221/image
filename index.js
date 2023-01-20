@@ -7,3 +7,7 @@ app.use(express.json());
 app.get("/",function(req,res){     
   res.sendFile(__dirname+"/src/main.html");
 });
+
+app.listen("3000",function(){
+	console.log("Server running on port 3000");
+});
