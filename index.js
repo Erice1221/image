@@ -72,6 +72,6 @@ app.post('/changelight', async (req, res) => {
       // always executed
     });
 });
-app.listen("3000",function(){
-	console.log("Server running on port 3000");
+app.listen("0",function(){
+	console.log("Server running on port 0");
 });
