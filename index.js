@@ -12,7 +12,7 @@ app.get("/",function(req,res){
 
 
 app.post('/getstate', async (req, res) => {
-    document.write('hello')
+    res.json({color:"red"})
 	axios.get('http://192.168.68.126/?led=state')
   .then(function (response) {
    
