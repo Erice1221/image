@@ -13,16 +13,16 @@ app.get("/",function(req,res){
 
 app.post('/getstate', async (req, res) => {
    //http://192.168.68.126/?led=state
-	await axios.get('http://localhost:3000/state')
+	await axios.get('https://b788-185-197-192-80.ngrok.io/state')
   .then(function (response) {
    
     // handle success
-    console.log(response);
- 
-    if (response.data.includes("False")){
+    console.log(response.data);
+    //change back to includes
+    if (response.data.state==("False")){
         res.json({color:"rgb(53, 54, 58)"})
     }
-    else if(response.data.includes("True")){
+    else if(response.data.state==("True")){
     res.json({color:"rgb(252, 238, 167)"})
     } else {
     res.json({color:"red"})
@@ -52,18 +52,18 @@ app.post('/changelight', async (req, res) => {
     }
     
 	//'http://192.168.68.126/?led='+mystate
-    await axios.get('http://localhost:3000/on')
+    await axios.get('https://b788-185-197-192-80.ngrok.io/on')
     .then(function (response) {
      
       // handle success
      
      
      
-      if (response.data.includes("false")){
+      if (response.data.state==("false")){
        
           res.json({color:"rgb(53, 54, 58)"})
       }
-      else if(response.data.includes("true")){
+      else if(response.data.state==("true")){
       res.json({color:"rgb(252, 238, 167)"})
  
       } else {
@@ -80,6 +80,6 @@ app.post('/changelight', async (req, res) => {
       // always executed
     });
 });
-app.listen("3000",function(){
+app.listen("4000",function(){
 	console.log("Server running on port 3000");
 });
