@@ -27,6 +27,7 @@ app.post('/getstate', async (req, res) => {
   })
   .catch(function (error) {
     // handle error
+    console.log(error)
    
   })
   .then(function () {
