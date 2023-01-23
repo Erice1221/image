@@ -12,26 +12,27 @@ app.get("/",function(req,res){
 
 
 app.post('/getstate', async (req, res) => {
-   
-	await axios.get('https://www.a2hosting.com/kb/cpanel/cpanel-software/migrating-a-node-js-application-to-node-js-selector')
+   //http://192.168.68.126/?led=state
+	await axios.get('http://localhost:3000/state')
   .then(function (response) {
    
     // handle success
     console.log(response);
-    console.log("RESPONSE")
+ 
     if (response.data.includes("False")){
         res.json({color:"rgb(53, 54, 58)"})
     }
     else if(response.data.includes("True")){
     res.json({color:"rgb(252, 238, 167)"})
-    }
+    } else {
     res.json({color:"red"})
+    }
   })
 
   .catch(function (error) {
     // handle error
     console.log(error)
-    console.log("ERROR")
+    res.json({color:"green"})
    
   })
   .then(function () {
@@ -50,8 +51,8 @@ app.post('/changelight', async (req, res) => {
         mystate="off"
     }
     
-	
-    await axios.get('http://192.168.68.126/?led='+mystate)
+	//'http://192.168.68.126/?led='+mystate
+    await axios.get('http://localhost:3000/on')
     .then(function (response) {
      
       // handle success
@@ -65,12 +66,14 @@ app.post('/changelight', async (req, res) => {
       else if(response.data.includes("true")){
       res.json({color:"rgb(252, 238, 167)"})
  
+      } else {
+        res.json({color:"red"})
       }
    
     })
     .catch(function (error) {
       // handle error
-      res.json({color:"red"})
+      res.json({color:"green"})
      
     })
     .then(function () {
