@@ -36,10 +36,12 @@ function ready() {
 
 
 function Changelightstate(){
+    if (document.body.style.backgroundColor=="rgb(252, 238, 167)" || document.body.style.backgroundColor=="rgb(53, 54, 58)"){
     fetch("/changelight", {
         headers: {'Content-Type': 'application/json'},
         method: "POST",
         body: JSON.stringify({
+            "color":document.body.style.backgroundColor
             })
       })
         .then(function (response) {
@@ -60,4 +62,7 @@ function Changelightstate(){
         .catch(function (error) {
           console.error("Error:", error);
         });
+    } else {
+        document.getElementById('main-status-id').innerText="Wait For the Background to be yellow or black"
+    }
 }
