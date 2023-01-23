@@ -17,7 +17,7 @@ app.post('/getstate', async (req, res) => {
   .then(function (response) {
    
     // handle success
-    console.log(response.data);
+    console.log(response);
     if (response.data.includes("False")){
         res.json({color:"rgb(53, 54, 58)"})
     }
@@ -25,6 +25,7 @@ app.post('/getstate', async (req, res) => {
     res.json({color:"rgb(252, 238, 167)"})
     }
   })
+
   .catch(function (error) {
     // handle error
     console.log(error)
