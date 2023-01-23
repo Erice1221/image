@@ -18,17 +18,20 @@ app.post('/getstate', async (req, res) => {
    
     // handle success
     console.log(response);
+    console.log("RESPONSE")
     if (response.data.includes("False")){
         res.json({color:"rgb(53, 54, 58)"})
     }
     else if(response.data.includes("True")){
     res.json({color:"rgb(252, 238, 167)"})
     }
+    res.json({color:"red"})
   })
 
   .catch(function (error) {
     // handle error
     console.log(error)
+    console.log("ERROR")
    
   })
   .then(function () {
