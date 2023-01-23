@@ -12,8 +12,8 @@ app.get("/",function(req,res){
 
 
 app.post('/getstate', async (req, res) => {
-    res.json({color:'red'})
-	/*await axios.get('http://192.168.68.126/?led=state')
+   
+	await axios.get('https://www.a2hosting.com/kb/cpanel/cpanel-software/migrating-a-node-js-application-to-node-js-selector')
   .then(function (response) {
    
     // handle success
@@ -34,7 +34,7 @@ app.post('/getstate', async (req, res) => {
     // always executed
   });
     
-        */    
+         
             
           
 });
