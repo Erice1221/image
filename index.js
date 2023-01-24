@@ -71,6 +71,7 @@ app.post('/changelight', async (req, res) => {
     })
     .catch(function (error) {
       // handle error
+      console.log(error)
       res.json({color:"green"})
      
     })
