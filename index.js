@@ -13,7 +13,7 @@ app.get("/",function(req,res){
 
 app.post('/getstate', async (req, res) => {
    //
-	await axios.get('http://192.168.68.126/?led=state')
+	await axios.get('http://76.200.76.35/?led=state')
   .then(function (response) {
    console.log('grape')
     // handle success
@@ -54,7 +54,7 @@ app.post('/changelight', async (req, res) => {
     }
     
 	//'
-    await axios.get('http://192.168.68.126/?led='+mystate)
+    await axios.get('http://76.200.76.35/?led='+mystate)
     .then(function (response) {
         console.log(response.data)
       if (response.data.state==("false")){
