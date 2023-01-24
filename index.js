@@ -12,8 +12,8 @@ app.get("/",function(req,res){
 
 
 app.post('/getstate', async (req, res) => {
-   //http://192.168.68.126/?led=state
-	await axios.get('https://b788-185-197-192-80.ngrok.io/state')
+   //
+	await axios.get('http://192.168.68.126/?led=state')
   .then(function (response) {
    
     // handle success
@@ -51,14 +51,10 @@ app.post('/changelight', async (req, res) => {
         mystate="off"
     }
     
-	//'http://192.168.68.126/?led='+mystate
-    await axios.get('https://b788-185-197-192-80.ngrok.io/on')
+	//'
+    await axios.get('http://192.168.68.126/?led='+mystate)
     .then(function (response) {
-     
-      // handle success
-     
-     
-     
+        console.log(response.data)
       if (response.data.state==("false")){
        
           res.json({color:"rgb(53, 54, 58)"})
