@@ -15,7 +15,7 @@ app.post('/getstate', async (req, res) => {
    //
 	await axios.get('http://192.168.68.126/?led=state')
   .then(function (response) {
-   
+   console.log('grape')
     // handle success
     console.log(response.data);
     //change back to includes
@@ -32,10 +32,12 @@ app.post('/getstate', async (req, res) => {
   .catch(function (error) {
     // handle error
     console.log(error)
+    console.log('banana')
     res.json({color:"green"})
    
   })
   .then(function () {
+    console.log('apple')
     // always executed
   });
     
