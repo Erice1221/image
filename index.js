@@ -15,14 +15,14 @@ app.post('/getstate', async (req, res) => {
    //
 	await axios.get('http://76.200.76.35/?led=state')
   .then(function (response) {
-   console.log('grape')
+  
     // handle success
     console.log(response.data);
     //change back to includes
-    if (response.data.state==("False")){
+    if (JSON.parse(response.data).state==("False")){
         res.json({color:"rgb(53, 54, 58)"})
     }
-    else if(response.data.state==("True")){
+    else if(JSON.parse(response.data).state==("True")){
     res.json({color:"rgb(252, 238, 167)"})
     } else {
     res.json({color:"red"})
@@ -32,12 +32,12 @@ app.post('/getstate', async (req, res) => {
   .catch(function (error) {
     // handle error
     console.log(error)
-    console.log('banana')
+    
     res.json({color:"green"})
    
   })
   .then(function () {
-    console.log('apple')
+   
     // always executed
   });
     
@@ -57,11 +57,11 @@ app.post('/changelight', async (req, res) => {
     await axios.get('http://76.200.76.35/?led='+mystate)
     .then(function (response) {
         console.log(response.data)
-      if (response.data.state==("false")){
+      if (response.data.includes("false")){
        
           res.json({color:"rgb(53, 54, 58)"})
       }
-      else if(response.data.state==("true")){
+      else if(response.data.includes("true")){
       res.json({color:"rgb(252, 238, 167)"})
  
       } else {
